@@ -1,0 +1,127 @@
+body {
+    background: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+}
+.img-hotel{
+    padding-right: 0px;
+}
+.test {
+    padding: 8px 8px;
+    box-shadow: 0 1px 3px 0 rgba(119,119,199,.3);
+    background-color: #fff;
+    margin-left: 24px;
+    margin-bottom: 16px;
+}
+.name-hotel{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+}
+
+.star-hotel{
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 8px;
+    display: inline-block
+}
+.detail-room {
+    margin-left: 4px;
+    display: inline-block;
+    line-height: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #DF6800;
+    margin-bottom: 0px;
+}
+.room {
+    margin-bottom: 16px;
+    display: block;
+}
+.amenities-hotel {
+    margin: 0px;
+}
+.list {
+    margin-bottom: 8px;
+    list-style: none;
+    padding: 0px;
+}
+.list li{
+   display: inline-block;
+}
+.price-box {
+    text-align: center;
+   /* padding: 0px 24px 0px 32px;*/
+}
+
+.price-night {
+    line-height: 4px;
+    font-size: 12px;
+    margin-bottom: 4px;
+    font-weight: normal;
+}
+.currency {
+    font-size: 24px;
+    font-weight: normal;
+    display: inline-block;
+    vertical-align: top;
+    color: #DF6800;
+    margin-bottom: 4px;
+}
+.price-box {
+    border-left: 1px dashed grey;
+}
+.price {
+    line-height: 40px;
+    font-size: 36px;
+    font-weight: bold;
+    display: inline-block;
+}
+.taxes {
+    line-height: 4px;
+    font-size: 12px;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+}
+
+button {
+    background-color: #002C77;
+    color: #fff;
+    box-shadow: 0 -2px 0 #00163C inset;
+    height: 40px !important;
+    font-size: 20px !important;
+    padding: 0 16px;
+    font-weight: bold;
+    width: 100%;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+.payments{
+    line-height: 16px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+@media (max-width: 768px) {
+
+    .test {
+        margin-left: 0px !important;
+    }
+
+    .price-box {
+        border-left: none;
+    }
+    .currency {
+        margin-bottom: 0px;
+        line-height: 32px;
+    }
+    .price-night {
+        margin-bottom: 0px;
+    }
+    /* .buttoncont {
+        padding-right: 16px;
+    } */
+  } 

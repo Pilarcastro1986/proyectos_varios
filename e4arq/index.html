@@ -1,0 +1,71 @@
+<html ng-app="app">
+    <head>
+        <title>e4_arquitectura</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+      <style>
+        body {
+          background: black;
+          font-family: 'Roboto Condensed', sans-serif;
+        }
+        .imagen {
+          text-align: center;
+          margin: 100 auto;
+        }
+        .instagram , .title{
+          color: white
+        }
+        .insta , .mail {
+          text-decoration: none;
+          color: #F0DD00;
+        }
+        .subtitle {
+          color:#F0DD00;
+          font-size: 18px;
+        }
+        a:hover{
+          color:#CDB00D;
+          text-decoration: none;
+        }
+        .hide {
+          display: none;
+        }
+
+        @media only screen and (max-width: 400px) {
+          .show {
+            display: none
+          }
+          .hide {
+            display: block;
+            margin: 27px auto;
+          }
+          .title {
+            font-size: 30px;
+          }
+          .subtitle{
+            font-size: 25px;
+          }
+        }
+        
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="imagen">
+              <img src="img/casco.png" class="img-responsive show">
+              <img src="img/logo.png" class="img-responsive hide" width="200">
+              <h2 class="title">SITIO WEB EN <span style="color:#F0DD00">CONSTRUCCI&#211;N</span></h2>
+              <p class="subtitle">Este sitio se encuentra en proceso de construcci&#243;n.<br>
+                <span class="instagram">Seguinos en instagram <a href="https://www.instagram.com/e4_arquitectura/" class="insta">e4_arquitectura</a><br>
+                 mail: <a href="mailto:info@e4_arquitectura.com.ar" class="mail">info@e4arquitectura.com.ar</a></span> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+    </body>
+</html>

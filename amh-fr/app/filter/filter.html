@@ -1,0 +1,270 @@
+<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <!-- NOMBRE DEL HOTEL -->
+    <div class="row mapsfilter hidden-md hidden-lg ">
+        <div class="searchmap">
+            <uib-accordion>
+                <div uib-accordion-group is-open="status.seeMap">
+                    <uib-accordion-heading class="panel-default">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hotelfilter">
+                            <p class="map">Ver hoteles en el mapa</p>
+                        </div>
+                    </uib-accordion-heading>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputfilter">
+                        <img src="https://i2.wp.com/mapa-maps.com.ar/wp-content/uploads/2017/11/sucursales.html-12.jpg" class="img-mapa">
+                    </div>
+                </div>
+            </uib-accordion>
+        </div>
+    </div>
+
+
+    <div class="row mapsfilter hidden-xs hidden-sm ">
+        <div class="searchmap">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputfilter">
+                <img src="https://i2.wp.com/mapa-maps.com.ar/wp-content/uploads/2017/11/sucursales.html-12.jpg" class="img-mapa">
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 hotelfilter">
+                <p class="map">Ver hoteles en el mapa</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-3 title hidden-xs hidden-sm">
+            <h4>Filtrar</h4>
+        </div>
+    </div>
+
+    <div class="row hidden-md hidden-lg hotelfilter">
+        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg title">
+            <uib-accordion class="hotelfilter">
+                <div uib-accordion-group is-open="statusResponsive.searchHotels">
+                    <uib-accordion-heading>
+                        <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hotelfilter fix">
+
+                            <p class="filtertitleResponsive">Filtrar</p>
+                            <i class="glyphicon arrow" ng-class="{'glyphicon-chevron-down': statusResponsive.searchHotels, 'glyphicon-chevron-up': !statusResponsive.searchHotels}"></i>
+                        </div>
+                    </uib-accordion-heading>
+
+                    <!-- nombre -->
+                    <uib-accordion class="hotelfilter">
+                        <div uib-accordion-group is-open="statusResponsive.searchHotels">
+                            <uib-accordion-heading>
+                                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hotelfilter">
+                                    <span class="glyphicon glyphicon-search icons"></span>
+                                    <p class="filtertitle">Nombre del hotel</p>
+                                    <i class="glyphicon arrow" ng-class="{'glyphicon-chevron-down': statusResponsive.searchHotels, 'glyphicon-chevron-up': !statusResponsive.searchHotels}"></i>
+                                </div>
+                            </uib-accordion-heading>
+                            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 inputfilter">
+                                <input type="text" class="form-control input" placeholder="ingrese el nombre de un hotel" ng-model="$ctrl.message">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 buttoncont">
+                                <button class="filterbtn" ng-click="$ctrl.sendEvent()">Aceptar</button>
+                            </div>
+                        </div>
+                    </uib-accordion>
+
+                    <!-- por noche -->
+                    <uib-accordion class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+                        <div uib-accordion-group is-open="statusResponsive.searchPrice">
+                            <uib-accordion-heading>
+                                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hotelfilter">
+                                    <span class="glyphicon glyphicon-search icons"></span>
+                                    <p class="filtertitle">Precio por noche</p>
+                                    <i class="glyphicon arrow" ng-class="{'glyphicon-chevron-down': statusResponsive.searchPrice, 'glyphicon-chevron-up': !statusResponsive.searchPrice}"></i>
+                                </div>
+                            </uib-accordion-heading>
+                            <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+                                <rzslider rz-slider-model="priceSlider.minValue" rz-slider-high="priceSlider.maxValue" rz-slider-options="priceSlider.options"></rzslider>
+                            </div>
+                        </div>
+                    </uib-accordion>
+
+
+
+                    <!-- estrellas -->
+
+                    <uib-accordion class="hotelfilter">
+                        <div uib-accordion-group is-open="statusResponsive.searchStars">
+                            <uib-accordion-heading>
+                                <div class="col-xs-12 col-sm-12 hidden-md hidden-lg hotelfilter">
+                                    <span class="glyphicon glyphicon-search icons"></span>
+                                    <p class="filtertitle">Estrellas</p>
+                                    <i class="glyphicon arrow" ng-class="{'glyphicon-chevron-down': statusResponsive.searchStars, 'glyphicon-chevron-up': !statusResponsive.searchStars}"></i>
+                                </div>
+                            </uib-accordion-heading>
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 inputfilter">
+                                <ul class="startslist">
+                                    <li>
+                                        <input type="checkbox" name="allstarts" checked>
+                                        <span class="all">Todas las estrellas
+                                            <span class="count">(999)</span>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="5" class="stylelist">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <p class="count">(999)</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="4" class="stylelist">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <p class="count">(999)</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="3" class="stylelist">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <p class="count">(999)</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="2" class="stylelist">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <p class="count">(999)</p>
+                                    </li>
+                                    <li>
+                                        <input type="checkbox" name="2" class="stylelist">
+                                        <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                        <p class="count">(999)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </uib-accordion>
+
+                </div>
+            </uib-accordion>
+        </div>
+    </div>
+
+    <!-- NOMBRE DEL HOTEL -->
+    <div class="row filters hidden-xs hidden-sm">
+        <div class="search">
+            <uib-accordion>
+                <div uib-accordion-group is-open="status.searchHotels">
+                    <uib-accordion-heading>
+                        <div class="hidden-xs hidden-sm col-md-10 col-lg-10 hotelfilter">
+                            <span class="glyphicon glyphicon-search icons"></span>
+                            <p class="filtertitle">Nombre del hotel</p>
+                        </div>
+                        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                            <i class="pull-right glyphicon arrow" ng-class="{'glyphicon-chevron-down': status.searchHotels, 'glyphicon-chevron-up': !status.searchHotels}"></i>
+                        </div>
+                    </uib-accordion-heading>
+                    <div class="hidden-xs hidden-sm col-md-8 col-lg-8 inputfilter">
+                        <input type="text" class="form-control input" placeholder="ingrese el nombre de un hotel" ng-model="$ctrl.message">
+
+                    </div>
+                    <div class="hidden-xs hidden-sm col-md-4 col-lg-4 buttoncont">
+                        <button class="filterbtn" ng-click="$ctrl.sendEvent()">Aceptar</button>
+                    </div>
+                </div>
+            </uib-accordion>
+        </div>
+    </div>
+
+
+    <!-- RANGO DE PRECIO -->
+    <div class="row range hidden-xs hidden-sm">
+        <div class="search">
+
+
+            <uib-accordion>
+                <div uib-accordion-group is-open="status.searchPrice">
+                    <uib-accordion-heading>
+                        <div class="hidden-xs hidden-sm col-md-10 col-lg-10 hotelfilter">
+                            <span class="glyphicon glyphicon-search icons"></span>
+                            <p class="filtertitle">Precio por noche</p>
+                        </div>
+                        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                            <i class="pull-right glyphicon arrow" ng-class="{'glyphicon-chevron-down': status.searchPrice, 'glyphicon-chevron-up': !status.searchPrice}"></i>
+                        </div>
+                    </uib-accordion-heading>
+                    <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                        <rzslider rz-slider-model="priceSlider.minValue" rz-slider-high="priceSlider.maxValue" rz-slider-options="priceSlider.options"></rzslider>
+                    </div>
+                </div>
+            </uib-accordion>
+        </div>
+    </div>
+
+
+    <!-- ESTRELLAS -->
+    <div class="row filters hidden-xs hidden-sm">
+        <div class="search">
+
+
+            <uib-accordion class="hidden-xs hidden-sm col-md-12 col-lg-12 hotelfilter">
+                <div uib-accordion-group is-open="status.searchStars">
+                    <uib-accordion-heading>
+                        <div class="hidden-xs hidden-sm col-md-10 col-lg-10 hotelfilter">
+                            <span class="glyphicon glyphicon-search icons"></span>
+                            <p class="filtertitle">Estrellas n</p>
+                        </div>
+                        <div class="hidden-xs hidden-sm col-md-2 col-lg-2">
+                            <i class="pull-right glyphicon arrow" ng-class="{'glyphicon-chevron-down': status.searchHotels, 'glyphicon-chevron-up': !status.searchHotels}"></i>
+                        </div>
+                    </uib-accordion-heading>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 inputfilter">
+                        <ul class="startslist">
+                            <li>
+                                <input type="checkbox" name="allstarts" checked>
+                                <span class="all">Todas las estrellas
+                                    <span class="count">(999)</span>
+                                </span>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="5" class="stylelist">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <p class="count">(999)</p>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="4" class="stylelist">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <p class="count">(999)</p>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="3" class="stylelist">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <p class="count">(999)</p>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="2" class="stylelist">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <p class="count">(999)</p>
+                            </li>
+                            <li>
+                                <input type="checkbox" name="2" class="stylelist">
+                                <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                                <p class="count">(999)</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </uib-accordion>
+        </div>
+    </div>

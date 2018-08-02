@@ -1,0 +1,187 @@
+{  
+   "swagger":"2.0",
+   "info":{  
+      "description":"ALMH Test Api",
+      "version":"1.0.0",
+      "title":"ALMH",
+      "contact":{  
+         "email":"pilarcastro86@gmail.com"
+      }
+   },
+   "host":"localhost:5006",
+   "basePath":"/api/v1/",
+   "tags":[  
+      {  
+         "name":"Hotels",
+         "description":"Informacion sobre los hoteles"
+      }
+   ],
+   "schemes":[  
+      "http"
+   ],
+   "paths":{  
+      "/hotels":{  
+        "__POST NUEVO HOTEL":"POST NUEVO HOTEL",
+         "post":{  
+            "tags":[  
+               "Hotels"
+            ],
+            "summary":"Crear un nuevo hotel en la db",
+            "operationId":"postHotels",
+            "consumes":[  
+               "application/json"
+            ],
+            "produces": [
+                "application/json"
+            ],
+            "parameters":[  
+               {  
+                  "in":"body",
+                  "name":"hotels",
+                  "description":"Hotel a agregar a la db",
+                  "required":true,
+                  "schema":{  
+                     "type":"object",
+                     "properties":{  
+                        "name":{  
+                           "type":"string"
+                        },
+                        "price":{  
+                           "type":"number"
+                        },
+                        "starts":{  
+                           "type":"number"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses":{  
+               "200":{  
+                  "description":"Se creo un nuevo hotel en la bd"
+               },
+               "405":{  
+                  "description":"Invalido"
+               }
+            }
+         },
+
+
+
+         "__GET HOTELES":"TRAER TODOS HOTELES",
+         "get":{  
+            "tags":[  
+               "Hotels"
+            ],
+            "summary":"Mostrar todos los hoteles de la bd",
+            "operationId":"getHotels",
+            "consumes":[  
+               "application/x-www-form-urlencoded"
+            ],
+            "produces":[  
+               "application/xml",
+               "application/json"
+            ],
+            "responses":{  
+               "200":{  
+                  "description":"successful operation",
+                  "schema":{  
+                     "type":"object",
+                     "properties":{  
+                        "name":{  
+                           "type":"string"
+                        },
+                        "price":{  
+                           "type":"number"
+                        },
+                        "starts":{  
+                           "type":"number"
+                        }
+                     }
+                  }
+               },
+               "400":{  
+                  "description":"Invalid status value"
+               }
+            }
+         }
+      },
+
+      "/hotels/{id}":{  
+         "__DELETE":"ELIMINAR HOTELES",
+         "delete":{  
+            "tags":[  
+               "Hotels"
+            ],
+            "summary":"Eliminar Hotels",
+            "operationId":"deleteHotels",
+            "produces":[  
+               "application/json"
+            ],
+            "parameters":[  
+               {  
+                  "name":"id",
+                  "in":"path",
+                  "description":"User with new values of properties",
+                  "schema":{  
+                    "$ref":"#/definitions/Hotels"
+                  }
+               }
+            ],
+            "responses":{  
+               "400":{  
+                  "description":"ID de usuario invalido"
+               },
+               "404":{  
+                  "description":"Usuario no encontrado"
+               }
+            }
+         },
+
+
+         "__GET HOTEL":"TRAER SOLO UN HOTELES",
+         "get":{  
+            "tags":[  
+               "Hotels"
+            ],
+            "summary":"Mostrar todos los hoteles de la bd",
+            "operationId":"getHotel",
+            "consumes":[  
+               "application/x-www-form-urlencoded"
+            ],
+            "produces":[  
+               "application/json"
+            ],
+            "parameters": [{
+                "name": "id",
+                "in": "path",
+                "description": "hotel id",
+                "required": true,
+                "type": "string"
+                }
+            ],
+            "responses":{  
+               "200":{  
+                  "description":"successful operation"
+               },
+               "400":{  
+                  "description":"Invalid status value"
+               }
+            }
+         }
+      },
+      "definitions":{  
+         "Hotels":{  
+            "required":[  
+               "_id"
+            ],
+            "properties":{  
+               "_id":{  
+                  "type":"string",
+                  "uniqueItems":true
+               }
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,59 @@
+
+ <h1>{{ $ctrl.data }}</h1>
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 test" ng-repeat="hotel in hoteles">
+     
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 img-hotel">
+            <img src="https://exp.cdn-hotels.com/hotels/5000000/4120000/4111400/4111313/4111313_26_b.jpg" class="img-responsive">
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 fix">
+            <span>
+                <p class="name-hotel">{{hotel.nombre}}</p>
+                <p class="star-hotel">
+                    <img ng-src="app/assets/img/estrella.png" width="16px" height="16px">
+                </p>
+                <p class="room">
+                    <img src="app/assets/img/cama.png" width="14px" height="14px">
+                    <span class="detail-room">Solo la habitacion</span>
+                </p>
+                <p class="amenities-hotel">
+                    <ul class="list">
+                        <li>
+                            <img src="app/assets/img/cubiertos.png" width="24px" height="20px">
+                        </li>
+                        <li>
+                            <img src="app/assets/img/cubiertos.png" width="24px" height="20px">
+                        </li>
+                    </ul>
+                </p>
+            </span>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 price-box">
+            <span>
+                <p class="price-night">Precio por noche por habitación</p>
+                <p class="currency">ARS
+                    <span class="price">{{hotel.precio}}</span>
+                </p>
+                <p class="taxes">Impuestos y tasas no incluidos</p>
+            </span>
+            <div class="boton">
+                <button>Ver hotel</button>
+            </div>
+            <p class="payments">Pagá en cuotas.</p>
+            <p class="payments">Pagá en destino.</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

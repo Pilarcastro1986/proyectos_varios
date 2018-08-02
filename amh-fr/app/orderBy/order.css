@@ -1,0 +1,13 @@
+/* ORDER */
+
+
+.ordertxt {
+    padding-right: 0px;
+}
+
+
+@media (max-width: 768px) {
+    .order{
+        margin-top: 4px;
+    }
+  } 
