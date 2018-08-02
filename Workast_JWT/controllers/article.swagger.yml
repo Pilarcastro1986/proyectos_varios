@@ -1,0 +1,133 @@
+        
+          
+  '/articles':
+    post:
+      tags:
+      - "Articles"
+      summary: "Crear un nuevo articulo en la db"
+      operationId: "postArticles"
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+      - in: "body"
+        name: "user"
+        description: "Articulo a agregar a la db"
+        required: true
+        schema:
+          type: object
+          properties:
+            userId:
+              type: string
+            title:
+              type: string
+            text:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+      responses:
+        405:
+          description: "Invalido"
+        200:
+          description: "Se creo un nuevo articulo"
+
+  
+  
+
+    get:
+      tags:
+      - "Articles"
+      summary: "Mostrar todos los Articulos de la bd"
+      operationId: "getArticles"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: object
+            properties:
+              userId:
+                type: string
+              title:
+                type: string
+              text:
+                type: string
+              tags:
+                type: array
+                items:
+                  type: string
+        400:
+          description: "Invalid status value"
+  
+  
+          
+        
+        
+        
+        
+    put:
+      tags:
+      - "Articles"
+      summary: "Actualizar Articles"
+      operationId: "updateArticles"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "user"
+        description: "Articulo para editar"
+        required: true
+        schema:
+          type: object
+          properties:
+            userId:
+              type: string
+            title:
+              type: string
+            text:
+              type: string
+            tags:
+              type: array
+              items:
+                type: string
+      responses:
+        400:
+          description: "ID de articulo invalido"
+        404:
+          description: "No se encontro el articulo"
+        200:
+          description: "Se modifico el articulo exitosamente"
+          
+          
+          
+          
+    delete:
+      tags:
+      - "Articles"
+      summary: "Eliminar Articulo"
+      operationId: "deleteArticles"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "ArticleId"
+        in: "path"
+        description: "Articulo a eliminar"
+        required: true
+        type: "integer"
+      responses:
+        400:
+          description: "ID de articulo invalido"
+        404:
+          description: "Articulo no encontrado"
+  
+  
