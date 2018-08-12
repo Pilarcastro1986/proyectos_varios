@@ -52,7 +52,6 @@ body {
 }
 .price-box {
     text-align: center;
-   /* padding: 0px 24px 0px 32px;*/
 }
 
 .price-night {
@@ -121,7 +120,4 @@ button {
     .price-night {
         margin-bottom: 0px;
     }
-    /* .buttoncont {
-        padding-right: 16px;
-    } */
   } 

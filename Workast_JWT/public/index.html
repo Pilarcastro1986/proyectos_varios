@@ -1,30 +1,54 @@
 <html ng-app="app">
-    <head>
-        <title>JWT INTEGRADO_ FRONT</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
-       
-    </head>
-
-    <body>
-        <cluster></cluster>
-
-
+<head>
+    <title>JWT INTEGRADO_ FRONT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+</head>
+
+<body>
+
+    <header-component></header-component>
+
+    <div class="container">
+        <div ng-view></div>
+    </div>
+       
+
+
+
+
     <script src="app/app.module.js"></script>
 
+    <script src="app/services/articlesService.js"></script>
     <script src="app/cluster/cluster.module.js"></script>
     <script src="app/cluster/cluster.component.js"></script>
+    <script src="app/cluster/cluster.routes.js"></script>
 
-    <script src="app/header/header.module.js"></script>     
+    <script src="app/header/header.module.js"></script>
     <script src="app/header/header.component.js"></script>
 
-    <script src="app/articles/articles.module.js"></script>     
-    <!-- <script src="app/articles/articles.service.js"></script>  -->
+    <script src="app/articles/articles.module.js"></script>
     <script src="app/articles/articles.component.js"></script>
+    <script src="app/articles/articles.routes.js"></script>
 
-    <script src="app/users/users.module.js"></script>     
+
+    <script src="app/users/users.module.js"></script>
     <script src="app/users/users.component.js"></script>
+    <script src="app/users/users.routes.js"></script>
 
-    </body>
+
+    <script src="app/edit/edit.module.js"></script>
+    <script src="app/edit/edit.component.js"></script>
+    <script src="app/edit/edit.routes.js"></script>
+
+    <script src="app/update/update.module.js"></script>
+    <script src="app/update/update.component.js"></script>
+    <script src="app/update/update.routes.js"></script>
+
+
+
+</body>
+
 </html>

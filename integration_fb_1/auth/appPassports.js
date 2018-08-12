@@ -7,8 +7,8 @@ const User = require('../mongo/models/users')
 
 
 passport.use(new FacebookStrategy({
-  clientID: "431238257379668",
-  clientSecret: "8159faed5377981c0a94aab7a524f4ff",
+  clientID: "",
+  clientSecret: "",
   callbackURL: "/auth/facebook/callback"
 },
   function(accessToken, cb) {

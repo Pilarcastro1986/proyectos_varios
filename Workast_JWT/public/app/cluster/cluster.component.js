@@ -1,7 +1,7 @@
 (function(){
     'use strict';
         angular
-            .module('cluster')
+            .module('app')
             .component('cluster', {
                 bindings: {},
                 templateUrl : 'app/cluster/cluster.html',
@@ -9,5 +9,7 @@
             })
 
             
-            function clusterCtrl($scope){}
+            function clusterCtrl($scope){
+                console.log('aaaa')
+            }
 }());

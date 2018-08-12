@@ -1,11 +1,13 @@
 (function(){
     'use strict';
         angular
-            .module('result')
+            .module('result', ['filter'])
             .component('resultComponent', {
                 bindings: {
                     data: '<',
-                    filters: '<'
+                    hotels: '<',
+                    model:'<',
+                    price:'<'
                 },
                 templateUrl : 'app/result/result.html',
                 controller : resultCtrl
@@ -14,26 +16,21 @@
             resultCtrl.$inject = ['$scope', 'hotelService']
 
             function resultCtrl($scope, hotelService) {
-                var vm = this;
-                $scope.$on('msg', function(evt, msg){ // El componente  está escuchando los eventos 'msg', y al recibirlos ejecuta su función de callback.
-                  vm.data = msg;
-                });
-
+  
                 $scope.hoteles = [
                     {
                         nombre:'HILTON', 
-                        precio: 98
+                        precio: 9800
                     },
                     {
                         nombre:'SHERATON', 
-                        precio: 100
+                        precio: 10000
                     },
                     {
                         nombre:'NH', 
                         precio: 12000
                     }];
 
-                
 
                 var _this = this;
             

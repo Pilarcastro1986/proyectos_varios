@@ -39,7 +39,7 @@ const app = express()
 // })
 // con este endpoint puedo crear nuevos usuarios con sus respectivos token
 
-.get('/api/v1/articles', authJwtMiddleweare.isAuth, controllerArticle.getArticles)
+.get('/api/v1/articles', controllerArticle.getArticles)
 .post('/api/v1/articles/', controllerArticle.postArticles)
 .delete('/api/v1/articles/:id', controllerArticle.deleteArticle)
 .put('/api/v1/articles/:id', controllerArticle.putArticle)

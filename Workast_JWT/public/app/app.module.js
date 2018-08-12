@@ -1,6 +1,16 @@
+
 (function(){
    'use strict';
        angular
-           .module('app', ['cluster']); 
+           .module('app', ['ngRoute', 'cluster', 'headerap'])
+           
+
+
+
+
+
 }());
+
+
+
 

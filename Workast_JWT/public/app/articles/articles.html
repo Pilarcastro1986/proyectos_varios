@@ -1,17 +1,21 @@
 <div class="container">
+  <h1>ARTICULOS</h1>
   <div class="row mb-2" style="margin-top: 80px;">
-    <div class="col-md-6" style="margin-top: 20px;">
+    <div class="col-md-6" style="margin-top: 20px;" ng-repeat="art in $ctrl.articles">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
         <div class="card-body d-flex flex-column align-items-start">
-          <strong class="d-inline-block mb-2 text-primary">aaa</strong>
+          <strong class="d-inline-block mb-2 text-primary">{{art.tags}}</strong>
           <h3 class="mb-0">
-            <a class="text-dark" href="#">Test Gulp</a>
+            <a class="text-dark" href="#">{{art.title}}</a>
           </h3>
           <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor </p>
+          <p class="card-text mb-auto"> {{art.text}} </p>
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-default" ng-click="editar()">Editar</button>
+                <a href="#!/editar/{{art._id}}">Editar  </a>
+                  <!-- <a type="button"  href="/editar/{{art._id}}">Editar</a> -->
+               
+              <button type="button" class="btn btn-danger" ng-click="$ctrl.deleteArticle(art)">Eliminar</button><br>
             </div>
           </div>
         </div>

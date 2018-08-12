@@ -1,20 +1,28 @@
 (function(){
     'use strict';
         angular
-            .module('filter' , ['ui.bootstrap', 'rzModule'])
+            .module('filter' , ['ui.bootstrap', 'rzModule', 'result', 'order'])
             .component('filterComponent', {
                 bindings: {
-                    data:'<'
+                    data:'<',
                 },
                 templateUrl : 'app/filter/filter.html',
                 controller : filterCtrl
             })
 
             function filterCtrl($scope) {
-                var vm = this;
-                vm.sendEvent = function() {
-                    $scope.$parent.$broadcast('msg', vm.message); //el componente emite un evento de tipo 'msg' a través del componente cluster (parent)
-                  };
+                // var vm = this;
+                // vm.sendEvent = function() {
+                //     $scope.$parent.$broadcast('msg', vm.message); //el componente emite un evento de tipo 'msg' a través del componente cluster (parent)
+                //   };
+
+
+                this.hotels = 'aaaaa';  // por que no funciona con scope?
+
+                // this.searchHotel = function searchHotel(hotel){
+                //     const h = hotel
+                //     console.log('h', hotel)
+                // }
 
                 $scope.oneAtATime = true;
                     
@@ -32,12 +40,16 @@
                 };
                 
                 $scope.priceSlider = {
-                    minValue: 200,
-                    maxValue: 300,
-                    options: {
-
-                    }
+                    minValue: 0,
+                    maxValue: 2000,
                 }
+
+                // vm.filterFn = function()
+                // {
+                //     return function(item){
+                //           return item['age'] >= vm.priceSlider1.value;
+                //     }
+                // };
             }
 
 

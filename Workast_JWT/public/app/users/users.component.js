@@ -1,5 +1,5 @@
 angular
-	.module('appusers')
+	.module('app')
     .component('userComponent', {
         bindings: {},
         templateUrl : 'app/users/users.html',

@@ -1,7 +1,7 @@
 (function(){
     'use strict';
         angular
-            .module('headerap')
+            .module('app')
             .component('headerComponent', {
                 bindings: {},
                 templateUrl : 'app/header/header.html',

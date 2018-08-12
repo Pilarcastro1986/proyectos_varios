@@ -15,5 +15,8 @@
     "gulp-minify-css": "^1.2.4",
     "gulp-serve": "^1.4.0",
     "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "angular-route": "^1.7.2"
   }
 }
