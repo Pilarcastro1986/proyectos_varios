@@ -3,7 +3,7 @@ angular
     .service('ArticleService', ArticleService)
 
 	function ArticleService($http){
-		this.getArticle = function(){
+		this.getArticles = function(){
             return $http({
             url : '/api/v1/articles',
             method: 'GET'
@@ -27,31 +27,26 @@ angular
         })
     }
 
-    // this.postArticle = function postArticle(data) {
-    //     return $http({
-    //         method: "post",
-    //         url: "/api/v1/articles/",
-    //         params: {
-    //             action: "add"
-    //         },
-    //         data: {
-    //             articles: data
-    //         }
-    //     });
-    // }
+        this.getArticle = function(id){
+            return $http({
+            url : '/api/v1/articles/' + id,
+            method: 'GET',
+        })
+    }
+
+
         
-    //     this.postArticle = function(data){
-    //         console.log('dataa', data)
-    //         return $http({
-    //         url : '/api/v1/articles/',
-    //         method: 'POST',
-    //         params: {
-    //             action: "add"
-    //         },
-    //         data: {
-    //             articles: data
-    //         }
-    //     })
-    // }
+        this.postArticle = function(formData){
+            console.log('servicio ang', formData)
+            return $http({
+            transformRequest: angular.identity,
+            headers: {"Content-Type": undefined},
+            url : '/api/v1/articles/',
+            method: 'POST',
+            formData: {
+                articles: formData
+            }
+        })
+    }
 }
 

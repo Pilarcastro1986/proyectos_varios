@@ -6,15 +6,15 @@ angular
         controller :usersCtrl
     })
 
-   usersCtrl.$inject = ['$scope']
+   usersCtrl.$inject = ['$scope', 'userService']
 
-    function usersCtrl($scope){
-    //    userService.getUsers()
-    //     .then(response => {
-    //         this.users = response.data;
-    //         console.lof(this.users)
-    //     }).catch(error => {
-    //         this.error = 'No Soup For You! Please login'
-    //     })
+    function usersCtrl($scope, userService){
+       userService.getUsers()
+        .then(response => {
+            this.users = response.data;
+            console.log(this.users)
+        }).catch(error => {
+            this.error = 'No Soup For You! Please login'
+        })
     }
     

@@ -11,6 +11,6 @@
                 $routeProvider
                 .when('/', {
                     template: '<article-component></article-component>'
-                  });
+                  })
            }
  }());

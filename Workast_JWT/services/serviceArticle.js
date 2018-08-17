@@ -14,20 +14,30 @@ module.exports = {
         })
     },
 
+    getArticle(id) {
+        return new Promise(function (resolve, reject) {
+            articulos.findById(id)
+            .then(articulos => {
+               resolve(articulos)
+            }).catch(error => {
+                reject('Error al buscar ese articulo ' + error)
+            })
+        })
+    },
 
-    // postArticles(body) {
-    //     return new Promise(function (resolve, reject) {
-    //         const nuevoArt = new articulos(body)
-    //         nuevoArt.save()
-    //         .then(articulos => {
-    //             console.log('4 - ARTICULO EN SERVER:', articulos)
-    //             resolve(articulos)
-    //         })
-    //         .catch(error => {
-    //            reject('Error al crear el articulo')
-    //         })
-    //     })
-    // },
+
+    postArticles(body) {
+        return new Promise(function (resolve, reject) {
+            const nuevoArt = new articulos(body)
+            nuevoArt.save()
+            .then(articulos => {
+                resolve(articulos)
+            })
+            .catch(error => {
+               reject('Error al crear el articulo')
+            })
+        })
+    },
 
     deleteArticle(id) {
         return new Promise(function (resolve, reject) {

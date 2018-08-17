@@ -8,11 +8,10 @@ angular
         controller : articleCtrl
     })
 
-    articleCtrl.$inject = ['$scope','ArticleService', '$http']
+    articleCtrl.$inject = ['ArticleService', '$location']
 
-    function articleCtrl($scope, ArticleService, $http, $routeParams, $location){
-        console.log('a')
-        ArticleService.getArticle()
+    function articleCtrl(ArticleService, $location){
+        ArticleService.getArticles()
         .then(response => {
             this.articles = response.data;
             console.log(this.articles)
@@ -20,24 +19,24 @@ angular
             this.error = 'No Soup For You! Please login'
         })
 
-        // this.reload = function(){
-        //     ArticleService.getArticle()
-        //     .then(response => {
-        //         this.articles = response.data;
-        //         console.log(this.articles)
-        //     }).catch(error => {
-        //         this.error = 'No Soup For You! Please login'
-        //     })
-        // }
+        this.reload = function(){
+            ArticleService.getArticles()
+            .then(response => {
+                this.articles = response.data;
+                console.log(this.articles)
+            }).catch(error => {
+                this.error = 'No Soup For You! Please login'
+            })
+        }
 
-        // this.editar = function(id, data){
-        //     ArticleService.putArticle(id, data)
-        //     .then(this.reload())
-        // }
+        this.editArticle = function(art) {
+            $location.path("/editar/" + art._id);
+       };
 
-        // this.deleteArticle = function(art) {
-        //     ArticleService.deleteArticle(art._id)
-        //     .then(this.reload())
-        // };
+
+        this.deleteArticle = function(art) {
+            ArticleService.deleteArticle(art._id)
+            .then(this.reload())
+        };
     }
     

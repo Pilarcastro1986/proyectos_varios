@@ -11,8 +11,8 @@
 
             function editConfig($routeProvider) {
                 $routeProvider
-                .when('/new', {
-                    template: '<update-component></update-component>'
+                .when('/upload-images', {
+                    template: '<upload-images-component></upload-images-component>'
                   });
            }
  }());

@@ -1,8 +1,10 @@
 const config = require('../auth/config')
+const usuarios = require('../mongo/modelos/usuarios.js')
 
 
 function singUp(req, res){
-    req.modelos.usuarios.create({
+
+    usuarios.create({
         name: req.body.name,
         avatar: req.body.avatar
     })
@@ -17,7 +19,7 @@ function singUp(req, res){
 
 function sigIn(req, res){
     //buscar en la bd 
-    req.modelos.usuarios.find({ 
+    usuarios.find({ 
         name: req.body.name
     })
         .then(usuario => {
@@ -33,7 +35,7 @@ function sigIn(req, res){
     }
 
 function getUsers (req, res, next){
-    req.modelos.usuarios.find()
+    usuarios.find()
     .then(usuarios =>{
         res.send(usuarios)
     })
@@ -44,7 +46,7 @@ function getUsers (req, res, next){
 }
 
 function postUsers (req, res, next){
-    req.modelos.usuarios.create({
+    usuarios.create({
         name : req.body.name,
         avatar: req.body.avatar
     }).then(usuarios => {
@@ -56,7 +58,7 @@ function postUsers (req, res, next){
 }
 
 function deleteUser(req, res, next){
-    req.modelos.usuarios.findByIdAndRemove(req.params.id)
+    usuarios.findByIdAndRemove(req.params.id)
         .then(() => {
             res.send('Usuario Eliminado')
         })
@@ -68,7 +70,7 @@ function deleteUser(req, res, next){
 function putUsers(req, res, next){
     const datosParaActualizar = req.body;
     const idUsuario = req.params.id;
-    req.modelos.usuarios.findByIdAndUpdate(idUsuario, datosParaActualizar)
+    usuarios.findByIdAndUpdate(idUsuario, datosParaActualizar)
     .then(datosNuevos => {
         res.send(datosNuevos)
     })
