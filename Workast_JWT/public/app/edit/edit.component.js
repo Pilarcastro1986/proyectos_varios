@@ -50,7 +50,7 @@ angular
                     //         // $location.path("/")
                     //     })
 
-                    $http.post('/api/v1/articles/', formData, {
+                    $http.post('http://localhost:5001/api/v1/articles', formData, {
                         transformRequest: angular.identity,
                         headers: {"Content-Type": undefined},
                     }).then(function (response) {

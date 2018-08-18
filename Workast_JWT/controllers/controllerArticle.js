@@ -34,7 +34,6 @@ function getArticle(req, res, next) {
 
 function postArticles(req, res) {
     if (req.file) {
-
             const nvo = new articulos({
                 tags: req.body.tags,
                 title: req.body.title,

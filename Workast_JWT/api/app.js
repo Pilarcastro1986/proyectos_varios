@@ -40,8 +40,7 @@ const app = express()
 
 .get('/api/v1/articles', controllerArticle.getArticles)
 .get('/api/v1/articles/:id', controllerArticle.getArticle)
-// .post('/api/v1/articles/', upload.any(), controllerArticle.postArticles)
-.post('/api/v1/articles/', upload.single('productImage'), controllerArticle.postArticles)
+.post('/api/v1/articles/', upload.single('image'), controllerArticle.postArticles)
 .delete('/api/v1/articles/:id', controllerArticle.deleteArticle)
 .put('/api/v1/articles/:id', controllerArticle.putArticle)
 
