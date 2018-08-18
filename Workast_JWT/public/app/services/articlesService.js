@@ -18,6 +18,8 @@ angular
     }
 
         this.putArticle = function(id, data){
+            console.log(id)
+            console.log('DATA EN SERV ANG', data)
             return $http({
             url : '/api/v1/articles/' + id,
             method: 'PUT',
@@ -39,8 +41,8 @@ angular
         this.postArticle = function(formData){
             console.log('servicio ang', formData)
             return $http({
-            transformRequest: angular.identity,
-            headers: {"Content-Type": undefined},
+            // transformRequest: angular.identity,
+            // headers: {"Content-Type": undefined},
             url : '/api/v1/articles/',
             method: 'POST',
             formData: {

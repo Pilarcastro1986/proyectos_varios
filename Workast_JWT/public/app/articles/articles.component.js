@@ -33,6 +33,10 @@ angular
             $location.path("/editar/" + art._id);
        };
 
+       this.ordenarPor = function(orden) {
+        //    console.log('orden')
+        // this.ordenSeleccionado = orden;
+      };
 
         this.deleteArticle = function(art) {
             ArticleService.deleteArticle(art._id)

@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row mb-2" style="margin-top: 80px;">
     <div class="col-md-6" style="margin-top: 20px;" ng-repeat="art in $ctrl.articles">
       <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -9,15 +9,62 @@
           </h3>
           <div class="mb-1 text-muted">Nov 12</div>
           <p class="card-text mb-auto"> {{art.text}} </p>
+          
           <div class="d-flex justify-content-between align-items-center">
             <div class="btn-group">
-              <!-- <a href="#!/editar/{{art._id}}" type="button" class="btn btn-info"> Editar </button> -->
+           
               <button type="button" class="btn btn-info" ng-click="$ctrl.editArticle(art)"> Editar </button>  
               <button type="button" class="btn btn-danger" ng-click="$ctrl.deleteArticle(art)">Eliminar</button><br>
             </div>
           </div>
         </div>
-        <img class="card-img-right flex-auto d-none d-md-block"  alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{art.productImage}}" data-holder-rendered="true">
+        <img class="card-img-right flex-auto d-none d-md-block"  alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{art.productImage}}">
       </div>
   </div>
+</div> -->
+
+
+<h2>Listado de Productos</h2>
+<hr>
+<div class="row" style="margin-top: 20px;">
+    <div class="input-group">
+        <span class="input-group-addon"></span>
+        <input type="text" class="form-control" ng-model="$ctrl.buscar" placeholder="Buscar producto">
+      </div>
+    <!-- <div class="col-md-12 text-center">
+        <div class="alert alert-info">No hay productos para mostrar, debes crear uno nuevo.</div>
+    </div> -->
+    <div class="col-md-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>
+                        <a href="">Nombre</a>
+                    </th>
+                    <th><a href="" ng-click="$ctrl.ordenarPor(art.price)"> Precio</a>
+                  </th>
+                    <th>Marca</th>
+                    <th>Descripcion</th>
+                    <th>Imagen</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr ng-repeat="art in $ctrl.articles | filter: $ctrl.buscar ">
+                    <td>{{art.name | uppercase}}</td>
+                    <td>{{art.price | currency}}</td>
+                    <td>{{art.brand}}</td>
+                    <td>{{art.condition}}</td>
+                    <td>
+                     <a href="{{art.productImage}}" target="_blank"><img alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{art.productImage}}"></a> 
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="$ctrl.editArticle(art)"> Editar </button>  
+                        <button type="button" class="btn btn-danger" ng-click="$ctrl.deleteArticle(art)">Eliminar</button><br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

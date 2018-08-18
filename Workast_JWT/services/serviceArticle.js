@@ -54,11 +54,10 @@ module.exports = {
 
     putArticle(id, body){
         return new Promise(function(resolve, reject) {
-            // const idArticle = req.params.id;
-            // const datosParaActualizar = req.body;
-        
+            console.log('DATA EN ser nd', body)
             articulos.findByIdAndUpdate(id, body)
             .then(nuevos => {
+                console.log('articulos en serv node', nuevos)
                 resolve(nuevos)
             })
             .catch(error => {

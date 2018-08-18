@@ -33,23 +33,25 @@ function getArticle(req, res, next) {
 // OPCION VIEJA CONTROLLER Y SERVICE EN UNO
 
 function postArticles(req, res) {
+
     if (req.file) {
-            const nvo = new articulos({
-                tags: req.body.tags,
-                title: req.body.title,
-                text: req.body.text,
-                productImage: req.file.path
-            })
+        
+        const nvo = new articulos({
+            name: req.body.name,
+            price: req.body.price,
+            condition: req.body.condition,
+            brand: req.body.brand,
+            productImage: req.file.path
+        })
 
-            nvo.save((err, productStored) => {
-                if (err) res.status(500).send({ message: `Error al salvar en la base de datos ${err} ` })
+        nvo.save((err, productStored) => {
+            if (err) res.status(500)
 
-                res.status(200).send({ nvo: productStored })
-            })
-
-     
-
+            res.status(200).send({ nvo: productStored })
+        })
     }
+    // console.log(req.file)
+    // console.log(req.body)
 }
 
 // function postArticles(req, res, next){
@@ -82,9 +84,14 @@ function deleteArticle(req, res, next) {
 }
 
 function putArticle(req, res, next) {
-    serviceArticle.putArticle(req.params.id, req.body)
-        .then(function () {
-            res.send('Articulo Actualizado')
+    let productId = req.params.id
+    let update = req.body.articles
+    console.log(productId)
+    console.log('DATA EN controller node', update)
+    serviceArticle.putArticle(productId, update)
+        .then(articulos => {
+            console.log('articulos en controller', update)
+            res.send(articulos)
         })
         .catch(error => {
             console.log('Error al actualizar este articulo', error)
