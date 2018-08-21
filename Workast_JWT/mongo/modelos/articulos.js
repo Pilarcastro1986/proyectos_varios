@@ -6,10 +6,13 @@ const articulos = Schema({
     price: Number,
     condition: String,
     brand: String,
-    // brand: [String],
-    // productImage:  [String]
+    productImage:  { type: String },
+    productImage1:{ type: String },
+    productImage2:{ type: String }
+
+
     // ORIGINAL:
-   productImage: { type: String }
+   // productImage: { type: String },
 })
 
 module.exports = mongoose.model('articulos', articulos)

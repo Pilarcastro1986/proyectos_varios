@@ -12,12 +12,14 @@ editCtrl.$inject = ['$scope', '$routeParams', 'ArticleService', '$location', '$h
 
 function editCtrl($scope, $routeParams, ArticleService, $location, $http) {
     console.log('routeparamas', $routeParams.id)
-
+    this.isEdit = false;
 
 
     this.$onInit = function () {
         if ($routeParams.id != 'new') {
             this.eventId = $routeParams.id;
+            this.isEdit = true;
+
             console.log('scope editar', $routeParams.id)
             ArticleService.getArticle(this.eventId)
                 .then(response => {
@@ -25,9 +27,6 @@ function editCtrl($scope, $routeParams, ArticleService, $location, $http) {
                     $scope.producto = this.viejo;
                     console.log(this.viejo)
                 })
-
-
-
             this.update = function () {
                 const data = $scope.producto
                 console.log('file', $scope.producto.productImage)
@@ -35,91 +34,37 @@ function editCtrl($scope, $routeParams, ArticleService, $location, $http) {
                     .then(response => {
                         $location.path("/")
                     })
-
-                // ORIGINAL
-                // this.data = $scope.producto
-                // ArticleService.putArticle(this.eventId, this.data)
-                // .then(response => {
-                //     $location.path("/")
-                // })  
             }
 
         } else {
-
-            $scope.producto = {};
-
+            this.isEdit = false;
             this.update = function () {
-                const formData = new FormData();
+               
+                var payload = new FormData();
+                var files = $('#file')[0].files
 
                 for (key in $scope.producto) {
-                    formData.append(key, $scope.producto[key])
+                    payload.append(key, $scope.producto[key])
                     console.log($scope.producto[key])
                 }
-
-
-                //   ORIGINAL
-                var file = $('#file')[0].files[0];
-                formData.append('image', file)
-                console.log(formData)
-
-                $http.post('http://localhost:5001/api/v1/articles', formData, {
+                if (files.length > 0) {
+                    console.log('es mas de uno')
+                    for (var i = 0; i < files.length; i++) {
+                        var file = files[i];
+                        payload.append('image', file);
+                    }
+                }
+                $http.post('http://localhost:5001/api/v1/articles', payload, {
                     transformRequest: angular.identity,
                     headers: { "Content-Type": undefined },
                 }).then(function (response) {
                     $location.path("/")
                 })
+
             }
         }
     }
 }
-
-
-
-
-
-
-            // this.update = function(){
-            //     if($routeParams.id === 'new'){
-            //         this.eventId = $routeParams.id;
-            //         console.log('scope editar', $routeParams.id)
-            //         ArticleService.getArticle(this.eventId)
-            //             .then(response => {
-            //                 this.nuevo = response.data;
-            //                 $scope.producto = this.nuevo;
-            //                 console.log(this.nuevo)
-            //             })       
-            //         }
-            //         else {
-            //         console.log('nuevo articulo', $scope.producto)
-            //         ArticleService.putArticle($scope.producto)
-            //         .then(function () {
-            //             $location.path("/")
-            //         })
-            //     }
-            // } 
-
-        // this.update = function(){
-        //     console.log('entra')
-        //     if($routeParams.id == 'new'){
-        //         console.log('nuevo articulo', $scope.producto)
-        //         console.log($scope.producto.imagen)
-        //         ArticleService.postArticle($scope.producto)
-        //             .then(function () {
-        //                 console.log('subio')
-        //             })
-        //         } else {
-        //             console.log('scope editar', $routeParams.id)
-        //             this.eventId = $routeParams.id;
-
-        //                 ArticleService.getArticle(this.eventId)
-        //                 .then(response => {
-        //                     this.nuevo = response.data;
-        //                     $scope.producto = this.nuevo;
-        //                     console.log(this.nuevo)
-        //                 })
-        //             }
-        //         }
-
 
 
 

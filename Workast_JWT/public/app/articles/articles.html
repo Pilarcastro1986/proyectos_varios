@@ -1,41 +1,16 @@
-<!-- <div class="container">
-  <div class="row mb-2" style="margin-top: 80px;">
-    <div class="col-md-6" style="margin-top: 20px;" ng-repeat="art in $ctrl.articles">
-      <div class="card flex-md-row mb-4 box-shadow h-md-250">
-        <div class="card-body d-flex flex-column align-items-start">
-          <strong class="d-inline-block mb-2 text-primary">{{art.tags}}</strong>
-          <h3 class="mb-0">
-            <a class="text-dark" href="#">{{art.title}}</a>
-          </h3>
-          <div class="mb-1 text-muted">Nov 12</div>
-          <p class="card-text mb-auto"> {{art.text}} </p>
-          
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-           
-              <button type="button" class="btn btn-info" ng-click="$ctrl.editArticle(art)"> Editar </button>  
-              <button type="button" class="btn btn-danger" ng-click="$ctrl.deleteArticle(art)">Eliminar</button><br>
-            </div>
-          </div>
-        </div>
-        <img class="card-img-right flex-auto d-none d-md-block"  alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{art.productImage}}">
-      </div>
-  </div>
-</div> -->
 
 
-<h2>Listado de Productos</h2>
-<hr>
-<div class="row" style="margin-top: 20px;">
-    <div class="input-group">
-        <span class="input-group-addon"></span>
-        <input type="text" class="form-control" ng-model="$ctrl.buscar" placeholder="Buscar producto">
-      </div>
-    <!-- <div class="col-md-12 text-center">
-        <div class="alert alert-info">No hay productos para mostrar, debes crear uno nuevo.</div>
-    </div> -->
-    <div class="col-md-12">
-        <table class="table table-striped">
+<div class="row" style="margin-top: 40px;">
+    <h2>Productos</h2>
+    <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  style="margin-bottom: 17px;">
+        <input type="text" class="form-control" ng-model="$ctrl.buscar" placeholder="Buscar figura">
+    </div>
+    <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <button type="button" class="btn btn-primary pull-right" ng-click="$ctrl.nuevoProducto()">Agregar nuevo producto</button>
+    </div>
+   <hr>
+    <div class="col-md-12 col-lg-12  table-responsive">
+        <table class="table">
             <thead>
                 <tr>
 
@@ -45,19 +20,28 @@
                     <th><a href="" ng-click="$ctrl.ordenarPor(art.price)"> Precio</a>
                   </th>
                     <th>Marca</th>
-                    <th>Descripcion</th>
-                    <th>Imagen</th>
+                    <th>Estado</th>
+                    <th>Imágenes</th>
+                    <th>&#32;</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr ng-repeat="art in $ctrl.articles | filter: $ctrl.buscar ">
-                    <td>{{art.name | uppercase}}</td>
+                    <td><strong>{{art.name | uppercase}}</strong></td>
                     <td>{{art.price | currency}}</td>
-                    <td>{{art.brand}}</td>
-                    <td>{{art.condition}}</td>
+                    <td>{{art.brand | uppercase}}</td>
+                    <td>{{art.condition | uppercase}}</td>
                     <td>
-                     <a href="{{art.productImage}}" target="_blank"><img alt="Thumbnail [200x250]" style="width: 200px; height: 250px;" src="{{art.productImage}}"></a> 
+                        <a href="{{art.productImage}}" target="_blank">
+                            <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage}}" class="img-rounded">
+                        </a>
+                        <a href="{{art.productImage1}}" target="_blank">
+                            <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage1}}" class="img-rounded">
+                        </a>
+                        <a href="{{art.productImage2}}" target="_blank">
+                            <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage2}}" class="img-rounded">
+                        </a> 
                     </td>
                     <td>
                         <button type="button" class="btn btn-info" ng-click="$ctrl.editArticle(art)"> Editar </button>  

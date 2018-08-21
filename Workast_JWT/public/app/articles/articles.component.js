@@ -14,7 +14,7 @@ angular
         ArticleService.getArticles()
         .then(response => {
             this.articles = response.data;
-            console.log(this.articles)
+            console.log('art', this.articles)
         }).catch(error => {
             this.error = 'No Soup For You! Please login'
         })
@@ -29,9 +29,14 @@ angular
             })
         }
 
+        this.nuevoProducto = function() {
+            $location.path("/editar/new");
+       };
+
         this.editArticle = function(art) {
             $location.path("/editar/" + art._id);
-       };
+        };
+
 
        this.ordenarPor = function(orden) {
         //    console.log('orden')

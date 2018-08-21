@@ -33,15 +33,16 @@ function getArticle(req, res, next) {
 // OPCION VIEJA CONTROLLER Y SERVICE EN UNO
 
 function postArticles(req, res) {
-
-    if (req.file) {
-        
+    console.log(req.files)
+    if (req.files) {
         const nvo = new articulos({
             name: req.body.name,
             price: req.body.price,
             condition: req.body.condition,
             brand: req.body.brand,
-            productImage: req.file.path
+            productImage: req.files[0].path,
+            productImage1: req.files[1].path,
+            productImage2: req.files[2].path
         })
 
         nvo.save((err, productStored) => {
@@ -50,9 +51,12 @@ function postArticles(req, res) {
             res.status(200).send({ nvo: productStored })
         })
     }
-    // console.log(req.file)
-    // console.log(req.body)
+    console.log(req.files[0].path)
+    console.log(req.files[1].path)
+    // console.log(req.files[2].path)
 }
+
+    // console.log(req.body)
 
 // function postArticles(req, res, next){
 //     console.log('req.file ',req.file);

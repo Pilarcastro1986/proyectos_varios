@@ -38,17 +38,17 @@ angular
 
 
         
-        this.postArticle = function(formData){
-            console.log('servicio ang', formData)
-            return $http({
-            // transformRequest: angular.identity,
-            // headers: {"Content-Type": undefined},
-            url : '/api/v1/articles/',
-            method: 'POST',
-            formData: {
-                articles: formData
-            }
-        })
-    }
+    //     this.postArticle = function(payload){
+    //         console.log('servicio ang', payload)
+    //         return $http({
+    //         // transformRequest: angular.identity,
+    //         // headers: {"Content-Type": undefined},
+    //         url : '/api/v1/articles/',
+    //         method: 'POST',
+    //         payload: {
+    //             articles: payload
+    //         }
+    //     })
+    // }
 }
 
