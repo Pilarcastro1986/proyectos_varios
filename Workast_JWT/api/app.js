@@ -24,7 +24,6 @@ const upload = multer({storage : storage, limits: {
 }}) // multer va a agarra mi configuracion guardada en storage
 
 
-
 const app = express()
 .use(bodyParser.urlencoded({extended: true}))
 .use(bodyParser.json())
@@ -40,9 +39,9 @@ const app = express()
 
 .get('/api/v1/articles', controllerArticle.getArticles)
 .get('/api/v1/articles/:id', controllerArticle.getArticle)
-.post('/api/v1/articles/', upload.array('image', 3 ), controllerArticle.postArticles)
+.post('/api/v1/articles/', upload.array('image', 3), controllerArticle.postArticles)
 //ORIGINAL 
-// .post('/api/v1/articles/', upload.single('image'), controllerArticle.postArticles)
+// .post('/api/v1/articles/', upload.any(), controllerArticle.postArticles)
 .delete('/api/v1/articles/:id', controllerArticle.deleteArticle)
 .put('/api/v1/articles/:id', controllerArticle.putArticle)
 

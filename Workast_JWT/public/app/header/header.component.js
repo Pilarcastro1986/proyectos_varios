@@ -8,6 +8,8 @@
                 controller : headerCtrl
             })
 
-            
-            function headerCtrl($scope){}
+            headerCtrl.$inject = ['$location']
+
+            function headerCtrl($scope,  $location){
+            }
 }());

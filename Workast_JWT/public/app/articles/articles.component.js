@@ -11,6 +11,7 @@ angular
     articleCtrl.$inject = ['ArticleService', '$location']
 
     function articleCtrl(ArticleService, $location){
+
         ArticleService.getArticles()
         .then(response => {
             this.articles = response.data;

@@ -48,12 +48,12 @@ function editCtrl($scope, $routeParams, ArticleService, $location, $http) {
                     console.log($scope.producto[key])
                 }
                 if (files.length > 0) {
-                    console.log('es mas de uno')
                     for (var i = 0; i < files.length; i++) {
                         var file = files[i];
                         payload.append('image', file);
                     }
                 }
+
                 $http.post('http://localhost:5001/api/v1/articles', payload, {
                     transformRequest: angular.identity,
                     headers: { "Content-Type": undefined },
@@ -66,5 +66,14 @@ function editCtrl($scope, $routeParams, ArticleService, $location, $http) {
     }
 }
 
+
+                // ArticleService.postArticle(payload)
+                // .then(articulos => {
+                //     res.send(articulos)
+                //     // this.articles = response.data;
+                //     // console.log('art', this.articles)
+                // }).catch(error => {
+                //     this.error = 'No Soup For You! Please login'
+                // })
 
 

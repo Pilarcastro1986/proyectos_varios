@@ -31,10 +31,26 @@ function getArticle(req, res, next) {
 }
 
 // OPCION VIEJA CONTROLLER Y SERVICE EN UNO
+// 
+function postArticles(req, res) {    
 
-function postArticles(req, res) {
-    console.log(req.files)
-    if (req.files) {
+    if (req.files.length > 1 && req.files.length < 3) {
+        console.log('primero',req.files.length)
+        const nvo = new articulos({
+            name: req.body.name,
+            price: req.body.price,
+            condition: req.body.condition,
+            brand: req.body.brand,
+            productImage: req.files[0].path,
+            productImage1: req.files[1].path
+        })
+        nvo.save((err, productStored) => {
+            if (err) res.status(500)
+    
+            res.status(200).send({ nvo: productStored })
+        })
+    }  else if (req.files.length == 3){
+       console.log('tres',req.files.length)
         const nvo = new articulos({
             name: req.body.name,
             price: req.body.price,
@@ -44,24 +60,31 @@ function postArticles(req, res) {
             productImage1: req.files[1].path,
             productImage2: req.files[2].path
         })
-
         nvo.save((err, productStored) => {
             if (err) res.status(500)
-
+    
+            res.status(200).send({ nvo: productStored })
+        })
+    } else{
+        const nvo = new articulos({
+            name: req.body.name,
+            price: req.body.price,
+            condition: req.body.condition,
+            brand: req.body.brand,
+            productImage: req.files[0].path
+        })
+        nvo.save((err, productStored) => {
+            if (err) res.status(500)
+    
             res.status(200).send({ nvo: productStored })
         })
     }
-    console.log(req.files[0].path)
-    console.log(req.files[1].path)
-    // console.log(req.files[2].path)
 }
 
-    // console.log(req.body)
 
 // function postArticles(req, res, next){
-//     console.log('req.file ',req.file);
 //         const body = req.body
-//         serviceArticle.postArticles(body)
+//         serviceArticle.postArticles(payload)
 //         .then(articulo => {
 //             res.send(articulo)
 //         })

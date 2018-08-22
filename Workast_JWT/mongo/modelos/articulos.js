@@ -6,9 +6,9 @@ const articulos = Schema({
     price: Number,
     condition: String,
     brand: String,
-    productImage:  { type: String },
-    productImage1:{ type: String },
-    productImage2:{ type: String }
+    productImage: String,
+    productImage1: String,
+    productImage2: String
 
 
     // ORIGINAL:
