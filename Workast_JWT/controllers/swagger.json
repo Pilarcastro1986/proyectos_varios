@@ -1,0 +1,381 @@
+{  
+    "swagger":"2.0",
+    "info":{  
+       "description":"Workplace Test Api bb",
+       "version":"1.0.0",
+       "title":"workplace",
+       "contact":{  
+          "email":"pilarcastro86@gmail.com"
+       }
+    },
+    "host":"localhost:5001",
+    "basePath":"/api/v1",
+    "tags":[  
+       {  
+          "name":"Users",
+          "description":"Informacion sobre los usuarios"
+       },
+       {  
+          "name":"Articles",
+          "description":"Articulos publicados"
+       }
+    ],
+    "schemes":[  
+       "http"
+    ],
+    "paths":{  
+       "/users":{  
+          "__POST NUEVO USUARIO":"POST NUEVO USUARIO",
+          "post":{  
+             "tags":[  
+                "Users"
+             ],
+             "summary":"Crear un nuevo usuario en la db",
+             "operationId":"postUsers",
+             "consumes":[  
+                "application/x-www-form-urlencoded"
+             ],
+             "parameters":[  
+                {  
+                   "in":"body",
+                   "name":"user",
+                   "description":"Usuario a agregar a la db",
+                   "required":true,
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "name":{  
+                            "type":"string"
+                         },
+                         "avatar":{  
+                            "type":"string"
+                         }
+                      }
+                   }
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"Se creo un nuevo usuario"
+                },
+                "405":{  
+                   "description":"Invalido"
+                }
+             }
+          },
+          "__GET USUARIOS":"TRAER USUARIOS",
+          "get":{  
+             "tags":[  
+                "Users"
+             ],
+             "summary":"Mostrar todos los usuarios de la bd",
+             "operationId":"getUsers",
+             "consumes":[  
+                "application/x-www-form-urlencoded"
+             ],
+             "produces":[  
+                "application/xml",
+                "application/json"
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"successful operation",
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "name":{  
+                            "type":"string"
+                         },
+                         "avatar":{  
+                            "type":"string"
+                         }
+                      }
+                   }
+                },
+                "400":{  
+                   "description":"Invalid status value"
+                }
+             }
+          }
+       },
+       "/users/{id}":{  
+          "__PUT":"ACTUALIZAR USUARIOS",
+          "put":{  
+             "tags":[  
+                "Users"
+             ],
+             "summary":"Actualizar datos de un usuario",
+             "operationId":"updateUsers",
+             "parameters":[  
+                {  
+                   "name":"user",
+                   "in":"body",
+                   "description":"User with new values of properties",
+                   "schema":{  
+                      "$ref":"#/definitions/User"
+                   }
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"Se modifico el usaurio",
+                   "schema":{  
+                      "$ref":"#/definitions/User"
+                   }
+                },
+                "400":{  
+                   "description":"ID de usuario invalido"
+                },
+                "404":{  
+                   "description":"No se encontro el usuario"
+                }
+             }
+          },
+          "__DELETE":"ELIMINAR USUARIOS",
+          "delete":{  
+             "tags":[  
+                "Users"
+             ],
+             "summary":"Eliminar Usuario",
+             "operationId":"deleteUser",
+             "produces":[  
+                "application/json"
+             ],
+             "parameters":[  
+                {  
+                   "name":"user",
+                   "in":"path",
+                   "description":"User with new values of properties",
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "_id":{  
+                            "type":"string"
+                         }
+                      }
+                   }
+                }
+             ],
+             "responses":{  
+                "400":{  
+                   "description":"ID de usuario invalido"
+                },
+                "404":{  
+                   "description":"Usuario no encontrado"
+                }
+             }
+          }
+       },
+       "__COMIENZO ARTICULOS":"ARTICULOS SWAGGER",
+       "/articles":{  
+          "__POST":"POST ARTICULOS",
+          "post":{  
+             "tags":[  
+                "Articles"
+             ],
+             "summary":"Crear un nuevo articulo en la db",
+             "operationId":"postArticles",
+             "consumes":[  
+                "application/x-www-form-urlencoded"
+             ],
+             "parameters":[  
+                {  
+                   "in":"body",
+                   "name":"user",
+                   "description":"Articulo a agregar a la db",
+                   "required":true,
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "userId":{  
+                            "type":"string"
+                         },
+                         "title":{  
+                            "type":"string"
+                         },
+                         "text":{  
+                            "type":"string"
+                         },
+                         "tags":{  
+                            "type":"array",
+                            "items":{  
+                               "type":"string"
+                            }
+                         }
+                      }
+                   }
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"Se creo un nuevo articulo"
+                },
+                "405":{  
+                   "description":"Invalido"
+                }
+             }
+          },
+          "__GET":"GET ARTICULOS",
+          "get":{  
+             "tags":[  
+                "Articles"
+             ],
+             "summary":"Mostrar todos los Articulos de la bd",
+             "operationId":"getArticles",
+             "consumes":[  
+                "application/x-www-form-urlencoded"
+             ],
+             "produces":[  
+                "application/xml",
+                "application/json"
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"successful operation",
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "userId":{  
+                            "type":"string"
+                         },
+                         "title":{  
+                            "type":"string"
+                         },
+                         "text":{  
+                            "type":"string"
+                         },
+                         "tags":{  
+                            "type":"array",
+                            "items":{  
+                               "type":"string"
+                            }
+                         },
+                         "$ref":"#/definitions/User"
+                      }
+                   }
+                },
+                "400":{  
+                   "description":"Invalid status value"
+                }
+             }
+          }
+       },
+       "/articles/{id}":{  
+          "__PUT":"PUT ARTICULOS",
+          "put":{  
+             "tags":[  
+                "Articles"
+             ],
+             "summary":"Actualizar Articles",
+             "operationId":"updateArticles",
+             "consumes":[  
+                "application/json",
+                "application/xml"
+             ],
+             "produces":[  
+                "application/xml",
+                "application/json"
+             ],
+             "parameters":[  
+                {  
+                   "in":"body",
+                   "name":"user",
+                   "description":"Articulo para editar",
+                   "required":true,
+                   "schema":{  
+                      "type":"object",
+                      "properties":{  
+                         "userId":{  
+                            "type":"string"
+                         },
+                         "title":{  
+                            "type":"string"
+                         },
+                         "text":{  
+                            "type":"string"
+                         },
+                         "tags":{  
+                            "type":"array",
+                            "items":{  
+                               "type":"string"
+                            }
+                         }
+                      }
+                   }
+                }
+             ],
+             "responses":{  
+                "200":{  
+                   "description":"Se modifico el articulo exitosamente"
+                },
+                "400":{  
+                   "description":"ID de articulo invalido"
+                },
+                "404":{  
+                   "description":"No se encontro el articulo"
+                }
+             }
+          },
+          "__DELETE":"ELIMINAR ARTICULOS",
+          "delete":{  
+             "tags":[  
+                "Articles"
+             ],
+             "summary":"Eliminar Articulo",
+             "operationId":"deleteArticles",
+             "produces":[  
+                "application/xml",
+                "application/json"
+             ],
+             "parameters":[  
+                {  
+                   "name":"ArticleId",
+                   "in":"path",
+                   "description":"Articulo a eliminar",
+                   "required":true,
+                   "type":"string",
+                   "schema":{  
+                      "$ref":"#/securityDefinitions/api_key"
+                   }
+                }
+             ],
+             "responses":{  
+                "400":{  
+                   "description":"ID de articulo invalido"
+                },
+                "404":{  
+                   "description":"Articulo no encontrado"
+                }
+             }
+          }
+       },
+       "definitions":{  
+          "User":{  
+             "required":[  
+                "_id",
+                "name",
+                "avatar"
+             ],
+             "properties":{  
+                "_id":{  
+                   "type":"string",
+                   "uniqueItems":true
+                },
+                "name":{  
+                   "type":"string"
+                },
+                "avatar":{  
+                   "type":"string"
+                }
+             }
+          }
+       },
+       "securityDefinitions":{  
+          "api_key":{  
+             "type":"apiKey",
+             "name":"authorization",
+             "in":"header"
+          }
+       }
+    }
+ }

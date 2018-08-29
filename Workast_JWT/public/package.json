@@ -17,6 +17,7 @@
     "gulp-uglify": "^3.0.1"
   },
   "dependencies": {
-    "angular-route": "^1.7.2"
+    "angular-route": "^1.7.2",
+    "ngstorage": "^0.3.11"
   }
 }

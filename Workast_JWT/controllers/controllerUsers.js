@@ -5,8 +5,8 @@ const usuarios = require('../mongo/modelos/usuarios.js')
 function singUp(req, res){
 
     usuarios.create({
-        name: req.body.name,
-        avatar: req.body.avatar
+        email: req.body.email,
+        password: req.body.password
     })
     .then(user => {
         res.status(200).send({token : config.createToken(user)})
@@ -17,22 +17,27 @@ function singUp(req, res){
     })
 }
 
-function sigIn(req, res){
-    //buscar en la bd 
-    usuarios.find({ 
-        name: req.body.name
+function singIn(req, res){
+    console.log('controller',req.body.users)
+   // const email = req.body.users
+    usuarios.findOne({ 
+        email: req.body.users
     })
-        .then(usuario => {
-            req.usuario = usuario
-            req.send({
-            mensaje : 'te logeaste correctamente',
-            token: config.createToken(usuario)
+    .then(usuario => {
+        if(usuario) {
+            console.log('usuario', usuario)
+            res.send({
+                mensaje : 'te logeaste correctamente',
+                token: config.createToken(usuario)
             })
-        })
-        .catch(error => {
-             console.log('Se produjo un error', error)
-        })
-    }
+        } else {
+            res.status(400).send('Datos incorrectos')
+        }
+    })
+    .catch(error => {
+            console.log('Se produjo un error', error)
+    })
+}
 
 function getUsers (req, res, next){
     usuarios.find()
@@ -80,4 +85,4 @@ function putUsers(req, res, next){
 }
 
 
-module.exports = { singUp, sigIn, getUsers, postUsers, deleteUser, putUsers }
+module.exports = { singUp, singIn, getUsers, postUsers, deleteUser, putUsers }

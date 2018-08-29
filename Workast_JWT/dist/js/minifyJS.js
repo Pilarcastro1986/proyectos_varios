@@ -1,1 +1,0 @@
-var app=angular.module("app",["ngRoute","cluster"]);app.config(function(e){e.when("/",{templateUrl:"<user-component></user-component>",controller:usersCtrl}).when("/red",{templateUrl:"public/app/users/users.html"})});

@@ -4,10 +4,14 @@ angular
     .service('userService', userService)
 
 	function userService($http){
-		this.getUsers = function(){
+		this.getUsers = function(data){
+            console.log('servicio angular', data)
             return $http({
-            url : '/api/v1/users',
-            method: 'GET'
+            url : '/api/v1/singin',
+            data: {
+                users: data
+            },
+            method: 'POST'
         })
     }
 }

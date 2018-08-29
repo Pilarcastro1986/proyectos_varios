@@ -10,7 +10,7 @@ function createToken(user) {
 
         // ait y exp se relacionan con el tiempo que va a esta vivo ese token, instalo moment.js 
         iat : moment().unix(), // unix significa que lo crea en el mismo moemnto.
-        exp: moment().add(14, 'days').unix(), // desde el momento en que se creo (unix) que dure 14 dias.
+        exp: moment().add(4, 'year').unix(), // desde el momento en que se creo (unix) que dure 14 dias.
     }
     // codifigo el payload y lo devuelvo.
 

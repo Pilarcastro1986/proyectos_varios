@@ -7,9 +7,10 @@ const controllerArticle = require('../controllers/controllerArticle')
 const controllerImages = require('../controllers/controllerImages')
 
 const getModels = require('../getModels')
-const authJwtMiddleweare = require('../auth/authJwtMiddleweare')
+const auth = require('../auth/authJwtMiddleweare')
 const swaggerUi = require('swagger-ui-express')
-const swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('../docs/getSwaggerDocument')();
+
 const multer = require('multer')
 const storage = multer.diskStorage({ //multer me permite configurar con mas detalles como quiero que se alamcen las imagenes y con que nombre
     destination : function(req, file, cb){
@@ -37,7 +38,7 @@ const app = express()
 })
 
 
-.get('/api/v1/articles', controllerArticle.getArticles)
+.get('/api/v1/articles',controllerArticle.getArticles)
 .get('/api/v1/articles/:id', controllerArticle.getArticle)
 .post('/api/v1/articles/', upload.array('image', 3), controllerArticle.postArticles)
 //ORIGINAL 
@@ -49,7 +50,6 @@ const app = express()
 .get('/api/v1/users', controllerUsers.getUsers)
 .put('/api/v1/users/:id', controllerUsers.putUsers)
 .post('/api/v1/users', controllerUsers.postUsers)
-.post('/api/v1/singup', controllerUsers.singUp) 
 .delete('/api/v1/users/:id', controllerUsers.deleteUser)
 
 
@@ -57,9 +57,14 @@ const app = express()
 .use('/uploads', express.static('uploads'))
 .use(express.static('./public'))
 // endpoint para probar el api token
-// .get('/api/v1/private', auth.isAuth, function(req, res){
-//     res.status(200).send({mensaje: 'Tienes acceso'})
-// })
+
+.post('/api/v1/singup', controllerUsers.singUp)
+.post('/api/v1/singin', controllerUsers.singIn)
+
+
+.get('/api/v1/private', auth.isAuth, function(req, res){
+    res.status(200).send({mensaje: 'Tienes acceso'})
+})
 // con este endpoint puedo crear nuevos usuarios con sus respectivos token
 
 

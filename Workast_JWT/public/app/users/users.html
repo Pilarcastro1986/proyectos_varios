@@ -1,19 +1,28 @@
 
 <div class="container">
         <div class="card card-container">
+            <div class="alert alert-danger" ng-show="$ctrl.showError">Los datos ingresados son incorrectos</div>
+           <!-- <div class="alert alert-success" ng-show="$ctrl.showExit">Te logeaste con exito. Bienvenido!</div> -->
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <img id="profile-img" class="profile-img-card" src="https://vignette.wikia.nocookie.net/lossimpson/images/5/54/Flying_Hellfish.png/revision/latest?cb=20100401011210&path-prefix=es">
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <form class="form-signin" name="loginForm">
+                <div class="form-group" ng-class="{'has-error': loginForm.email.$invalid && loginForm.email.$dirty, 'has-success': loginForm.email.$valid }">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="$ctrl.email"  name="email" required onfocus="this.value=''" value="$ctrl.email">
+                    <p class="help-block" ng-if="loginForm.email.$invalid && loginForm.email.$dirty">No soup for you! Email invalido! </p>
+                </div>
+                <div class="form-group" ng-class="{'has-error': loginForm.password.$invalid && loginForm.password.$dirty, 'has-success': loginForm.password.$valid}">
+                    <input type="password" id="inputPassword" name="password" class="form-control" ng-minLength="4" placeholder="Password" ng-model="user.password" required>
+                    <p class="help-block" ng-if="loginForm.password.$invalid && loginForm.password.$dirty">La clave debe ser de 8 caractéres minimo</p>
+                </div>
                 <div id="remember" class="checkbox">
                     <label>
-                        <input type="checkbox" value="remember-me"> Remember me
+                        <input type="checkbox" value="remember-me" ng-click="$ctrl.save()"> Remember me
                     </label>
                 </div>
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" ng-click="$ctrl.singIn()">Sign in</button>
+              
             </form><!-- /form -->
         </div><!-- /card-container -->
     </div><!-- /container -->
