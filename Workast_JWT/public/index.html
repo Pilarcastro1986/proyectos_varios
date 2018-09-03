@@ -2,15 +2,16 @@
 
 <head>
     <title>JWT INTEGRADO_ FRONT</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width; initial-scale=1.0"> 
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
     <script src="node_modules/ngstorage/ngStorage.min.js"></script>
 
     <link href="app/users/users.css" rel="stylesheet">
-    <link href="app/edit/edit.css" rel="stylesheet">    
+    <link href="app/edit/edit.css" rel="stylesheet">  
+    <link href="app/articles/articles.css" rel="stylesheet">    
 </head>
 
 <body>
@@ -30,6 +31,7 @@
     <script src="app/app.module.js"></script>
 
     <script src="app/services/userService.js"></script>
+    <script src="app/services/jwtService.js"></script>
     <script src="app/services/articlesService.js"></script>
     <script src="app/cluster/cluster.module.js"></script>
     <script src="app/cluster/cluster.component.js"></script>

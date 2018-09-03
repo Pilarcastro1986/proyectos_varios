@@ -8,9 +8,13 @@ angular
         controller : articleCtrl
     })
 
-    articleCtrl.$inject = ['ArticleService', '$location']
+    articleCtrl.$inject = ['ArticleService', '$location', 'jwtService']
 
-    function articleCtrl(ArticleService, $location){
+    function articleCtrl(ArticleService, $location, jwtService){
+
+       
+        this.algo =  jwtService.read()
+        
 
         ArticleService.getArticles()
         .then(response => {

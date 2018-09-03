@@ -31,7 +31,7 @@ function getArticle(req, res, next) {
 }
 
 // OPCION VIEJA CONTROLLER Y SERVICE EN UNO
-// 
+
 function postArticles(req, res) {    
 
     if (req.files.length > 1 && req.files.length < 3) {
@@ -40,6 +40,8 @@ function postArticles(req, res) {
             name: req.body.name,
             price: req.body.price,
             condition: req.body.condition,
+            colection: req.body.colection,
+            comment : req.body.comment,
             brand: req.body.brand,
             productImage: req.files[0].path,
             productImage1: req.files[1].path
@@ -55,7 +57,8 @@ function postArticles(req, res) {
             name: req.body.name,
             price: req.body.price,
             condition: req.body.condition,
-            brand: req.body.brand,
+            colection: req.body.colection,
+            comment : req.body.comment,
             productImage: req.files[0].path,
             productImage1: req.files[1].path,
             productImage2: req.files[2].path
@@ -70,7 +73,8 @@ function postArticles(req, res) {
             name: req.body.name,
             price: req.body.price,
             condition: req.body.condition,
-            brand: req.body.brand,
+            colection: req.body.colection,
+            comment : req.body.comment,
             productImage: req.files[0].path
         })
         nvo.save((err, productStored) => {

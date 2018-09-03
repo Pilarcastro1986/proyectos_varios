@@ -1,5 +1,5 @@
 
-
+<h1 ng-show="$ctrl.algo">hola</h1>
 <div class="row" style="margin-top: 40px;">
     <h2>Productos</h2>
     <div class="input-group col-xs-12 col-sm-12 col-md-12 col-lg-12"  style="margin-bottom: 17px;">
@@ -16,32 +16,42 @@
                     <th>
                         <a href="">Nombre</a>
                     </th>
-                    <th><a href="" ng-click="$ctrl.ordenarPor(art.price)"> Precio</a>
-                  </th>
+                    <th>Colección <i class="fa fa-sort float-right" aria-hidden="true"></i></th>
+                    <th>Precio</th>
                     <th>Marca</th>
                     <th>Estado</th>
+                    <th width="100" style="width: 100px">Comentario</th>
                     <th>Imágenes</th>
                     <th>&#32;</th>
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody class="table-hover">
                 <tr ng-repeat="art in $ctrl.articles | filter: $ctrl.buscar ">
                     <td><strong>{{art.name | uppercase}}</strong></td>
+                    <td>{{art.colection}}</td>
                     <td>{{art.price | currency}}</td>
                     <td>{{art.brand | uppercase}}</td>
+
                     <td>{{art.condition | uppercase}}</td>
+                    <!-- <td> 
+                        <table style="border: 1px solid">
+                         <tr><td>{{art.comment}}</td></tr> 
+                        <tr><td>hola</td></tr>
+                        </table>
+                    </td> -->
                     <td>
-                        <a href="{{art.productImage}}" target="_blank" >
+                        <a href="{{art.productImage}}" target="_blank">
                            <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage}}" class="img-rounded">
                         </a>
-                         <a href="{{art.productImage1}}" target="_blank">
+                         <a href="{{art.productImage1}}" target="_blank"  ng-class="$ctrl.dos" >
                            <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;"src="{{art.productImage1}}" class="img-rounded">
                         </a>
                         <a href="{{art.productImage2}}" target="_blank">
-                           <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage2}}" class="img-rounded">
+                           <img alt="Thumbnail [100x100]" style="width: 100px; height: 100px;" src="{{art.productImage2}}" class="img-rounded"  ng-class="art.productImage2 == null ? 'show' : 'hide'">
                         </a> 
                     </td>
+
                     <td>
                         <button type="button" class="btn btn-info" ng-click="$ctrl.editArticle(art)"> Editar </button>  
                         <button type="button" class="btn btn-danger" ng-click="$ctrl.deleteArticle(art)">Eliminar</button><br>
@@ -51,3 +61,6 @@
         </table>
     </div>
 </div>
+
+<!-- ng-class="t.type === 'debit' ? 'text-success' : 'text-credit'" -->
+<!-- ng-class="$ctrl.dos  ? 'show' : 'hide'" -->
